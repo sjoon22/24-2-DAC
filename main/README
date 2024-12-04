@@ -1,9 +1,0 @@
-TEST/
-├── BiRefNet/                 # BiRefNet 모델 코드 및 관련 파일 
-├── BiRefNet-general-epoch_244.pth  # BiRefNet의 가중치 파일
-├── input/                    # 원본 이미지 저장
-├── mask/                     # Segmentation으로 생성된 마스크 이미지 저장
-├── person_only/              # Segmentation으로 생성된 인물만 있는 이미지 저장
-├── background_only/          # Segmentation으로 생성된 배경만 있는 이미지 저장
-├── inpainting_results/       # Stability AI Inpainting 결과 저장
-└── main.py                   # 실행 스크립트
