@@ -1,3 +1,5 @@
+## File Directory ##
+
 TEST/
 ├── BiRefNet/                 # BiRefNet 모델 코드 및 관련 파일 
 ├── BiRefNet-general-epoch_244.pth  # BiRefNet의 가중치 파일
