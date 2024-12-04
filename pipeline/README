@@ -8,4 +8,5 @@ TEST/
 ├── person_only/              # Segmentation으로 생성된 인물만 있는 이미지 저장
 ├── background_only/          # Segmentation으로 생성된 배경만 있는 이미지 저장
 ├── inpainting_results/       # Stability AI Inpainting 결과 저장
-└── main.py                   # 실행 스크립트
+├── main.py                   # segmentation 및 inpainting 코드 
+└── edit_person.py            # drop person in anywhere
