@@ -16,7 +16,7 @@ import wget
 
 # Stability AI API 정보
 API_URL = "https://api.stability.ai/v2beta/stable-image/edit/inpaint"
-API_KEY = "sk-IlZh99pIYsl4UhAay5IjtXfbCZ6cNRhWr6dlh1sCvcBeb6bS"
+API_KEY = "your_key"
 
 # BiRefNet 모델 초기화
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
