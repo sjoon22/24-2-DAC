@@ -1,0 +1,18 @@
+# File Directory for web Program
+
+TESTING/
+├── BiRefNet/                                  # Directory for BiRefNet-related files or resources
+├── BiRefNet-general-epoch_244.pth             # Pre-trained model file for BiRefNet
+├── input/                                     # Uploaded original photos
+├── mask/                                      # Masking images that highlight the person in the photo
+├── person_only/                               # Segmented images containing only the person from the original photo
+├── background_only/                           # Segmented images with only the background, excluding the person               
+├── inpainting_results/                        # Images of the background after inpainting the missing person area
+├── merged/                                    # Final images with the person placed in the desired location on the inpainted background
+├── templates/                                 # HTML templates for the Flask web app
+│   ├── editor.html                            # Web interface for editing images (background and person)
+│   ├── index.html                             # Main landing page for uploading images
+│   ├── result.html                            # Page for displaying the processed result
+│   └── view_images.html                       # Page for viewing uploaded and processed images
+├── app.py                                     # Flask application handling file uploads, image processing, and routing
+└── main.py                                    # Script for performing segmentation
