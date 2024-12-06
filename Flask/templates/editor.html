@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            max-width: 90%;
+            max-height: 500px;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: grab;
+        }
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
+        .error {
+            color: red;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #ff4b47;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>이미지 편집</h1>
+        <!-- 캔버스를 사용하여 이미지를 표시 -->
+        <canvas id="imageCanvas"></canvas>
+        <button class="button" onclick="saveImage()">Save Image</button>
+    </div>
+
+    <script>
+        const backgroundImageSrc = '/inpainting_results/{{ bg_filename }}';
+        const personImageSrc = '/person_only/{{ person_filename }}';
+        const canvas = document.getElementById('imageCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const backgroundImage = new Image();
+        const personImage = new Image();
+
+        let isDragging = false;
+        let offsetX, offsetY;
+        let personPosition = { x: 0, y: 0 }; // 인물 이미지의 초기 위치 설정
+        let dragSpeed = 1.7;  // 드래그 속도 배율 추가
+
+        // 배경 이미지가 로드된 후 캔버스에 그리기
+        backgroundImage.onload = function() {
+            canvas.width = backgroundImage.width;
+            canvas.height = backgroundImage.height;
+
+            ctx.drawImage(backgroundImage, 0, 0);
+
+            // 인물 이미지 로드 후 배경 위에 그리기
+            personImage.onload = function() {
+                const personWidth = personImage.width;
+                const personHeight = personImage.height;
+
+                // 인물 이미지 크기 조정 (배경 이미지에 비례하도록 조정)
+                const scale = Math.min(canvas.width / personWidth, canvas.height / personHeight);
+                const personScaledWidth = personWidth * scale;
+                const personScaledHeight = personHeight * scale;
+
+                // 인물 이미지의 초기 위치 조정
+                personPosition.x = (canvas.width - personScaledWidth) / 2;
+                personPosition.y = (canvas.height - personScaledHeight) / 2;
+
+                // 배경 위에 인물 이미지 그리기
+                ctx.drawImage(personImage, personPosition.x, personPosition.y, personScaledWidth, personScaledHeight);
+            }
+
+            // 인물 이미지 소스 로드
+            personImage.src = personImageSrc;
+        };
+
+        // 배경 이미지 소스 로드
+        backgroundImage.src = backgroundImageSrc;
+
+        // 마우스 이벤트로 인물 이미지 드래그하기
+        canvas.addEventListener('mousedown', function(e) {
+            // 드래그 시작
+            isDragging = true;
+            offsetX = e.offsetX - personPosition.x;
+            offsetY = e.offsetY - personPosition.y;
+            canvas.style.cursor = 'grabbing';
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                // 드래그 중인 경우, 이미지 위치 업데이트 (속도 배율 적용)
+                personPosition.x = (e.offsetX - offsetX) * dragSpeed;
+                personPosition.y = (e.offsetY - offsetY) * dragSpeed;
+
+                redrawCanvas();
+            }
+        });
+
+        canvas.addEventListener('mouseup', function() {
+            // 드래그 종료
+            isDragging = false;
+            canvas.style.cursor = 'grab';
+        });
+
+        canvas.addEventListener('mouseleave', function() {
+            // 마우스가 캔버스를 벗어날 때 드래그 종료
+            isDragging = false;
+            canvas.style.cursor = 'grab';
+        });
+
+        function redrawCanvas() {
+            // 캔버스 새로 그리기
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // 기존 캔버스 지우기
+            ctx.drawImage(backgroundImage, 0, 0); // 배경 이미지 그리기
+            ctx.drawImage(personImage, personPosition.x, personPosition.y, personImage.width, personImage.height); // 인물 이미지 그리기
+        }
+
+        // 이미지 저장 기능
+        function saveImage() {
+            const imageData = canvas.toDataURL('image/png');
+            fetch('/save_image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ image: imageData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Image saved successfully!');
+                // 저장된 이미지와 원본 이미지를 보여주는 페이지로 리디렉션
+                window.location.href = "/view_images";  // 리디렉션 추가
+            })
+            .catch(error => alert('Error saving image'));
+        }
+    </script>
+</body>
+</html>
