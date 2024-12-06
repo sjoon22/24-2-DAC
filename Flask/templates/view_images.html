@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 보기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 700px; /* 가로 길이 조정 */
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        h1 {
+            color: #ff6f61;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+        }
+        .image-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex: 1; /* 동일한 너비 */
+        }
+        .image-group h2 {
+            font-size: 1.2em;
+            margin: 0;
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #ff4b47;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>업로드된 이미지와 편집 결과</h1>
+
+        <div class="image-row">
+            <!-- 원본 이미지 섹션 -->
+            <div class="image-group">
+                <h2>원본 이미지</h2>
+                {% if input_images %}
+                    {% for image in input_images %}
+                        <img src="{{ url_for('serve_input_image', filename=image) }}" alt="{{ image }}">
+                    {% endfor %}
+                {% else %}
+                    <p>원본 이미지를 찾을 수 없습니다.</p>
+                {% endif %}
+            </div>
+
+            <!-- 병합 결과 섹션 -->
+            <div class="image-group">
+                <h2>편집 결과</h2>
+                {% if merged_output %}
+                    <img src="{{ url_for('serve_merged_output') }}" alt="편집된 이미지">
+                {% else %}
+                    <p>편집된 결과를 찾을 수 없습니다.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- 홈 버튼 -->
+        <button class="button" onclick="window.location.href='/'">Home</button>
+    </div>
+</body>
+</html>
