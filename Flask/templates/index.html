@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #ff6f61;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4b47;
+        }
+
+        .loading {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #777;
+            display: none; /* 처음에는 숨김 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>이미지 업로드</h1>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit">업로드</button>
+        </form>
+        <p id="loadingMessage" class="loading">이미지 처리 중입니다...</p>
+    </div>
+
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        const loadingMessage = document.getElementById('loadingMessage');
+
+        uploadForm.addEventListener('submit', () => {
+            // 업로드 버튼 클릭 시 "이미지 처리 중입니다..." 표시
+            loadingMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
