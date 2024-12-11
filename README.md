@@ -22,11 +22,9 @@ https://github.com/user-attachments/assets/c2608fdd-ea77-413a-86e9-1d0732d415db
 ## 🏁 Conclusion and Future Work
 
 The PPT-Application project aimed to develop an AI-powered system capable of transforming subject poses and naturally merging them into high-quality reconstructed images. In a society where the demand for personalized content creation and image editing efficiency is rapidly increasing, this project sought to revolutionize image editing quality and productivity.
-Despite promising advancements, the project faced notable challenges:
+Despite promising advancements, the project faced notable challenges. Thus, we decided not to include the pose transformation feature in the application. 
 
-### Achievements
-- Successfully implemented an **End-to-End Image Editing System** integrating Segmentation and Inpainting technologies.
-- Utilized **BiRefNet** for high-precision segmentation and **Stability API** for efficient inpainting with high-resolution outputs.
+Notable challenges :
 
 ### Limitations
 1. **Pose Transfer Issues**:
@@ -55,6 +53,7 @@ Despite promising advancements, the project faced notable challenges:
 PPT-Application's base Transfer model is from 
 [Roy et al. (2023)](https://arxiv.org/abs/2202.06777), [code](https://github.com/prasunroy/pose-transfer?tab=readme-ov-file), and we fine-tune it with an additional [dataset](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71704) for multiracial transformation.
 
+-------
 
 ## Citation
 
