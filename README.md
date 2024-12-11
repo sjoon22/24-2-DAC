@@ -12,64 +12,48 @@ PPT-Application is an AI-powered image editing tool that allows users to seamles
 
 ------
 
-### Pose Transfer Performance Limitation
-
-#### Successful Pose Transfer with Foreign Subject
-![successful_foreign_subject](images/Pose_transfer_good.png)  
-
-The above image demonstrates successful pose transfer when using a foreign subject, showcasing the model's strong performance when tested on data similar to the training dataset.
-
-#### Failure Pose Transfer with Local Subject
-![failed_local_subject](images/Pose_transfer_bad.png)  
-
-The model fails to accurately transform the pose when tested with local subjects, introducing distortions and retaining foreign facial features. This limitation is attributed to **domain mismatch** in the training dataset.
-
-#### After Fine-tuned
-<img src="images/inference.png" alt="inference" width="500"/>
-
-
-PPT-Application's base model is from 
-[Roy et al. (2023)](https://arxiv.org/abs/2202.06777), [code](https://github.com/prasunroy/pose-transfer?tab=readme-ov-file), and we fine-tune it with an additional [dataset](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71704) for multiracial transformation.
-
-## 🏁 Conclusion and Future Work
-
-The PPT-Application project aimed to develop an AI-powered system capable of transforming subject poses and naturally merging them into high-quality reconstructed images. In a society where the demand for personalized content creation and image editing efficiency is rapidly increasing, this project sought to revolutionize image editing quality and productivity.
-
-### Key Outcomes
-- Successfully implemented an **End-to-End Image Editing System** that enables users to transform subject poses and reposition them seamlessly within images.
-- Utilized **BiRefNet** for precise segmentation and **Stability API-based Inpainting** to maintain high-resolution output with fast processing.
-
-### Identified Limitations
-1. **Domain Mismatch in Pose Transfer Models**  
-   - DeepFashion dataset's bias towards Western-centric features led to suboptimal results when applied to Eastern facial features.
-2. **Processing Speed Constraints**  
-   - CPU-based processing significantly limited real-time usability, with an average processing time of 60 seconds per image.
-
-### Recommendations for Overcoming Limitations
-1. **Enhanced Data Diversity**  
-   - Incorporate diverse datasets representing a wide range of facial features and body types to improve model generalization.
-   - Fine-tune the Pose Transfer model with additional datasets focusing on underrepresented groups.
-2. **Model Improvement**  
-   - Transition from GAN-based models to cutting-edge **Diffusion Models** for improved pose transformation quality and adaptability.
-3. **Hardware Optimization**  
-   - Adopt GPU-based processing to drastically reduce processing time and enable near-real-time editing.
-   - Explore cloud-based deployment with GPU support to make the application accessible to more users without local hardware constraints.
-
-### Future Directions
-- Continue developing the Pose Transfer model to better handle a variety of features and poses.
-- Integrate real-time editing capabilities with GPU acceleration for improved user experience.
-- Expand application functionality to support additional editing tasks such as multi-subject editing and advanced lighting adjustments.
-- Explore potential partnerships with fashion, advertising, and content creation industries to adapt the application for professional workflows.
-
-### Final Note
-The PPT-Application project has demonstrated the transformative potential of AI-driven image editing technologies while highlighting the challenges of domain adaptation and processing efficiency. This project serves as an essential foundation for future innovations in personalized content creation and advanced editing tools.
-
-
-
 ## Demo
 
 
 https://github.com/user-attachments/assets/c2608fdd-ea77-413a-86e9-1d0732d415db
+
+------
+
+## 🏁 Conclusion and Future Work
+
+The PPT-Application project aimed to develop an AI-powered system capable of transforming subject poses and naturally merging them into high-quality reconstructed images. In a society where the demand for personalized content creation and image editing efficiency is rapidly increasing, this project sought to revolutionize image editing quality and productivity.
+Despite promising advancements, the project faced notable challenges:
+
+### Achievements
+- Successfully implemented an **End-to-End Image Editing System** integrating Segmentation and Inpainting technologies.
+- Utilized **BiRefNet** for high-precision segmentation and **Stability API** for efficient inpainting with high-resolution outputs.
+
+### Limitations
+1. **Pose Transfer Issues**:
+   - Domain mismatch caused the model to retain foreign facial features when applied to local subjects.
+   - Repositioning errors resulted in visual misalignments and artifacts.
+
+   #### Example:
+   **Successful Pose Transfer (Foreign Subject)**  
+   ![successful_foreign_subject](images/Pose_transfer_good.png)
+
+   **Failed Pose Transfer (Local Subject)**  
+   ![failed_local_subject](images/Pose_transfer_bad.png)
+
+   **After Fine-tuned**
+   <img src="images/inference.png" alt="inference" width="500"/>
+
+2. **Processing Speed Constraints**:
+   - CPU-based processing averaged 60 seconds per image, limiting real-time usability.
+
+### Future Directions
+- Enhance **data diversity** by incorporating more inclusive datasets to improve model generalization.
+- Transition to **Diffusion Models** for more adaptable and higher-quality pose transformations.
+- Adopt GPU-based processing to reduce latency and improve user experience.
+- Expand functionalities for multi-subject editing and advanced lighting adjustments.
+
+PPT-Application's base model is from 
+[Roy et al. (2023)](https://arxiv.org/abs/2202.06777), [code](https://github.com/prasunroy/pose-transfer?tab=readme-ov-file), and we fine-tune it with an additional [dataset](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71704) for multiracial transformation.
 
 
 ## Citation
