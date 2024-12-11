@@ -14,7 +14,9 @@ PPT-Application is an AI-powered image editing tool that allows users to seamles
 
 ## Application Testing Guide
 
-If you want to test our application instead of the Pose Transfer feature, the necessary code is available in the `pipeline` folder. Follow these steps:
+If you want to test our application instead of the Pose Transfer feature, the necessary code is available in the `pipeline` folder. 
+
+Follow these steps:
 
 1. Place the input images in the `input` folder.
 2. Run `main.py` to perform segmentation and inpainting.
