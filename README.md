@@ -1,6 +1,7 @@
 # PPT-Application: AI-Powered Position / Pose Reconstruction System
 
 
+## background
 With the rise of social media, the demand for advanced photo editing has grown, but most apps offer only basic features like cropping and brightness adjustment. PPT-Application addresses this with an AI-powered solution that transforms subject poses and positions within photos, providing seamless, creative, and precise photo reconstruction.
 
 -------
