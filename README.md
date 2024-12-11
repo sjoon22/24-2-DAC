@@ -11,6 +11,21 @@ PPT-Application is an AI-powered image editing tool that allows users to seamles
 - **Repositioning**: Places the pose-modified subject into a specified location within the image.
 
 ------
+
+### Pose Transfer Performance Limitation
+
+#### Successful Pose Transfer with Foreign Subject
+![successful_foreign_subject](images/pose_transfer_good.png)  
+
+The above image demonstrates successful pose transfer when using a foreign subject, showcasing the model's strong performance when tested on data similar to the training dataset.
+
+#### Failure with Local Subject
+![failed_local_subject](images/pose_transfer_bad.png)  
+
+The model fails to accurately transform the pose when tested with local subjects, introducing distortions and retaining foreign facial features. This limitation is attributed to **domain mismatch** in the training dataset.
+
+---
+
 <br>
 
 ![inference](images/inference.png)  
