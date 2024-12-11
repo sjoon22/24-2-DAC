@@ -22,6 +22,7 @@ https://github.com/user-attachments/assets/c2608fdd-ea77-413a-86e9-1d0732d415db
 ## 🏁 Conclusion and Future Work
 
 The PPT-Application project aimed to develop an AI-powered system capable of transforming subject poses and naturally merging them into high-quality reconstructed images. In a society where the demand for personalized content creation and image editing efficiency is rapidly increasing, this project sought to revolutionize image editing quality and productivity.
+
 Despite promising advancements, the project faced notable challenges. Thus, we decided not to include the pose transformation feature in the application. 
 
 Notable challenges :
@@ -39,9 +40,10 @@ Notable challenges :
    ![failed_local_subject](images/Pose_transfer_bad.png)
 
    **After Fine-tuned**
-   !<img src="images/inference.png" alt="inference" width="500"/>
+   
+   <img src="images/inference.png" alt="inference" width="500"/>
 
-2. **Processing Speed Constraints**:
+3. **Processing Speed Constraints**:
    - CPU-based processing averaged 60 seconds per image, limiting real-time usability.
 
 ### Future Directions
