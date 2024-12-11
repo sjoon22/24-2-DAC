@@ -23,7 +23,7 @@ If you want to test our application instead of the Pose Transfer feature, the ne
 ---
 
 ### Pipeline Folder Structure
-```plaintext
+
 pipeline/
 ├── BiRefNet/                         # BiRefNet model code and related files
 ├── BiRefNet-general-epoch_244.pth    # Pre-trained weights for BiRefNet
