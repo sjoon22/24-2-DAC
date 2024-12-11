@@ -12,6 +12,31 @@ PPT-Application is an AI-powered image editing tool that allows users to seamles
 
 ------
 
+## Application Testing Guide
+
+If you want to test our application instead of the Pose Transfer feature, the necessary code is available in the `pipeline` folder. Follow these steps:
+
+1. Place the input images in the `input` folder.
+2. Run `main.py` to perform segmentation and inpainting.
+3. Finally, run `edit_person.py` to position the segmented person anywhere in the image and merge it with the background.
+
+---
+
+### Pipeline Folder Structure
+```plaintext
+pipeline/
+├── BiRefNet/                         # BiRefNet model code and related files
+├── BiRefNet-general-epoch_244.pth    # Pre-trained weights for BiRefNet
+├── input/                            # Folder to store original input images
+├── mask/                             # Stores masks generated from segmentation
+├── person_only/                      # Stores images of segmented persons only
+├── background_only/                  # Stores images of the background without the person
+├── inpainting_results/               # Stores results of inpainting with Stability AI
+├── main.py                           # Code for segmentation and inpainting
+└── edit_person.py                    # Code to reposition the person and merge with the background
+
+-------
+
 ## Demo
 
 
