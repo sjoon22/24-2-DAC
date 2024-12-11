@@ -1,13 +1,14 @@
 # PPT-Application: AI-Powered Position / Pose Reconstruction System
 
-## 🚀 Project Summary
+### 🚀 Project Summary
 PPT-Application is an AI-powered image editing tool that allows users to seamlessly modify subject poses and positions in photos. This cutting-edge solution goes beyond traditional photo editing features to offer an intuitive, high-quality experience for both individual and professional users.
 
 -------
 
-Key Features:
-- Automatically transforms the pose of a person in the image based on a reference pose image provided by the user.
-- Repositions the pose-transformed subject to the desired location within the photo.
+### Key Features
+- **Pose Transfer**: Automatically modifies a person's pose based on a reference image.
+- **Inpainting**: Smoothly fills background after separating the subject.
+- **Repositioning**: Places the pose-modified subject into a specified location within the image.
 
 ------
 <br>
