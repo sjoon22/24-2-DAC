@@ -20,8 +20,6 @@ If you want to test our application instead of the Pose Transfer feature, the ne
 2. Run `main.py` to perform segmentation and inpainting.
 3. Finally, run `edit_person.py` to position the segmented person anywhere in the image and merge it with the background.
 
----
-
 ### Pipeline Folder Structure
 
 ```plaintext
