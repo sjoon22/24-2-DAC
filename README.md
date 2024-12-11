@@ -41,7 +41,7 @@ Despite promising advancements, the project faced notable challenges:
    ![failed_local_subject](images/Pose_transfer_bad.png)
 
    **After Fine-tuned**
-   <img src="images/inference.png" alt="inference" width="500"/>
+   !<img src="images/inference.png" alt="inference" width="500"/>
 
 2. **Processing Speed Constraints**:
    - CPU-based processing averaged 60 seconds per image, limiting real-time usability.
@@ -52,7 +52,7 @@ Despite promising advancements, the project faced notable challenges:
 - Adopt GPU-based processing to reduce latency and improve user experience.
 - Expand functionalities for multi-subject editing and advanced lighting adjustments.
 
-PPT-Application's base model is from 
+PPT-Application's base Transfer model is from 
 [Roy et al. (2023)](https://arxiv.org/abs/2202.06777), [code](https://github.com/prasunroy/pose-transfer?tab=readme-ov-file), and we fine-tune it with an additional [dataset](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71704) for multiracial transformation.
 
 
