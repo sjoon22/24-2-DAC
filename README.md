@@ -4,4 +4,7 @@
 ![image](/source/image.png)
 
 ## Demo
-https://github.com/24-2-Data-Analysis-CapstoneDesign/24-2-DAC/issues/8#issue-2731627707
+
+
+https://github.com/user-attachments/assets/c2608fdd-ea77-413a-86e9-1d0732d415db
+
