@@ -19,20 +19,14 @@ PPT-Application is an AI-powered image editing tool that allows users to seamles
 
 The above image demonstrates successful pose transfer when using a foreign subject, showcasing the model's strong performance when tested on data similar to the training dataset.
 
-#### Failure with Local Subject
+#### Failure Pose Transfer with Local Subject
 ![failed_local_subject](images/Pose_transfer_bad.png)  
 
 The model fails to accurately transform the pose when tested with local subjects, introducing distortions and retaining foreign facial features. This limitation is attributed to **domain mismatch** in the training dataset.
 
----
-
-<br>
-
+#### After Fine-tuned
 ![inference](images/inference.png)  
 
-
------
-<br>
 
 PPT-Application's base model is from 
 [Roy et al. (2023)](https://arxiv.org/abs/2202.06777), [code](https://github.com/prasunroy/pose-transfer?tab=readme-ov-file), and we fine-tune it with an additional [dataset](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71704) for multiracial transformation.
