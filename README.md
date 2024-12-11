@@ -35,6 +35,7 @@ pipeline/
 ├── inpainting_results/               # Stores results of inpainting with Stability AI
 ├── main.py                           # Code for segmentation and inpainting
 └── edit_person.py                    # Code to reposition the person and merge with the background
+```
 
 -------
 
