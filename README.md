@@ -25,14 +25,23 @@ If you want to test our application instead of the Pose Transfer feature, the ne
 ### Pipeline Folder Structure
 
 pipeline/
+
 ├── BiRefNet/                         # BiRefNet model code and related files
+
 ├── BiRefNet-general-epoch_244.pth    # Pre-trained weights for BiRefNet
+
 ├── input/                            # Folder to store original input images
+
 ├── mask/                             # Stores masks generated from segmentation
+
 ├── person_only/                      # Stores images of segmented persons only
+
 ├── background_only/                  # Stores images of the background without the person
+
 ├── inpainting_results/               # Stores results of inpainting with Stability AI
+
 ├── main.py                           # Code for segmentation and inpainting
+
 └── edit_person.py                    # Code to reposition the person and merge with the background
 
 -------
