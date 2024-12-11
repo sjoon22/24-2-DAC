@@ -25,7 +25,7 @@ The above image demonstrates successful pose transfer when using a foreign subje
 The model fails to accurately transform the pose when tested with local subjects, introducing distortions and retaining foreign facial features. This limitation is attributed to **domain mismatch** in the training dataset.
 
 #### After Fine-tuned
-![inference](images/inference.png)  
+<img src="images/inference.png" alt="inference" width="500"/>
 
 
 PPT-Application's base model is from 
