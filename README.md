@@ -41,7 +41,8 @@ pipeline/
 
 ## Demo
 
-https://github.com/user-attachments/assets/c2608fdd-ea77-413a-86e9-1d0732d415db
+https://github.com/user-attachments/assets/378af9b0-46b9-46a7-a57c-bef912d47d30
+
 
 ------
 
